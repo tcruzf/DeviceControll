@@ -31,10 +31,13 @@ public class DocumentsController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> FileUpload(IFormFile file, string description)
     {
-        if (file == null || description == null)
+
+        if (!ModelState.IsValid)
         {
             TempData["ErrorMessage"] = "Você não anexou nenhum documento! Tente novamente!";
-            return View();
+            var documents = await _documentService.GetAllAsync(); // REcupera os documentos do banco de dados
+            return View(documents);
+
         }
 
         var documentDto = new DocumentDto

@@ -3,7 +3,12 @@
 @{
     ViewData["Title"] = "Upload de Arquivos";
 }
-
+@if (TempData["ErrorDetails"] != null)
+{
+    <div class="alert alert-danger">
+        @Html.Raw(TempData["ErrorDetails"])
+    </div>
+}
 <div class="container-fluid px-4">
     <h1 class="mt-4">Arquivos</h1>
     <ol class="breadcrumb mb-4">
@@ -63,6 +68,8 @@
                     </tr>
                 </thead>
                 <tbody>
+                @if (Model != null && Model.Any())
+                {    
                     @foreach (var document in Model)
                     {
                         <tr>
@@ -76,8 +83,19 @@
                             </td>
                         </tr>
                     }
+                }
+                else
+                {
+                   <tr>
+                   <td colspan="5">Nenhum documento encontrado.</td>
+                   </tr>  
+                }
                 </tbody>
             </table>
         </div>
     </div>
 </div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+       <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js"></script>
+}

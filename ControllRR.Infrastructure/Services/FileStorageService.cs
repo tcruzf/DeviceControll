@@ -8,7 +8,7 @@ namespace ControllRR.Infrastructure.Services;
 public class FileStorageService : IFileStorageService
 {
     private readonly IWebHostEnvironment _webHostEnvironment;
-     private readonly string _webRootPath;
+    private readonly string _webRootPath;
 
     public FileStorageService(IWebHostEnvironment webHostEnvironment)
     {
@@ -17,10 +17,10 @@ public class FileStorageService : IFileStorageService
 
     public async Task<string> SaveFileAsync(IFormFile form, string folder)
     {
-      
+
         string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "uploads");
         Directory.CreateDirectory(uploadsFolder);
-          if (!Directory.Exists(uploadsFolder))
+        if (!Directory.Exists(uploadsFolder))
         {
             Directory.CreateDirectory(uploadsFolder);
         }
@@ -30,7 +30,7 @@ public class FileStorageService : IFileStorageService
         {
             await form.CopyToAsync(fileStream);
         }
-       return uniqueFileName;
+        return uniqueFileName;
 
 
 

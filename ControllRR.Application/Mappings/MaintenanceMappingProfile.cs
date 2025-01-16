@@ -9,13 +9,13 @@ public class MaintenanceMappingProfile : Profile
         // Mapeamento de Maintenance para MaintenanceDto
         CreateMap<Maintenance, MaintenanceDto>()
 
-            .ForMember(dest => dest.UserFullName, opt => opt.MapFrom(src => src.User.Name)) // Mapear o nome do usuário
-            .ForMember(dest => dest.DeviceName, opt => opt.MapFrom(src => src.Device.Type)) // Mapear o nome do dispositivo
-            .ForMember(dest => dest.SectorName, opt => opt.MapFrom(src => src.Device.Sector.Name)) // Mapear o nome do setor
-           // .ForMember(dest => dest.OpenDate, opt => opt.MapFrom(src => src.OpenDate.ToString()))
-          //  .ForMember(dest => dest.CloseDate, opt => opt.MapFrom(src => src.CloseDate.ToString()))
+            .ForMember(dest => dest.UserFullName, opt => opt.MapFrom(src => src.User.Name)) // 
+            .ForMember(dest => dest.DeviceName, opt => opt.MapFrom(src => src.Device.Type)) // 
+            .ForMember(dest => dest.SectorName, opt => opt.MapFrom(src => src.Device.Sector.Name)) //
+            .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.Description)) // 
+         
             .ReverseMap(); // Permitir mapeamento reverso
 
-        // Caso precise de mapeamento para DTOs adicionais, adicione aqui
+       
     }
 }

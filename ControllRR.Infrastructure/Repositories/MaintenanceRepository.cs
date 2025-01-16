@@ -68,8 +68,8 @@ public class MaintenanceRepository : IMaintenanceRepository
         {   //Gambiarra para poder fazer uma porrada de tentativa de pegar um ou outro valor(não vou explicar, tô com a cabeça e o estomago doendo e sem paciencia!)
             query = query.Where(x =>
                 (x.SimpleDesc != null && x.SimpleDesc.ToLower().Contains(searchValue)) ||
-                (x.MaintenanceNumber != null && x.MaintenanceNumber.ToString().ToLower().Contains(searchValue)) ||
-                (x.Device.SerialNumber != null && x.Device.SerialNumber.ToString().ToLower().Contains(searchValue)) ||
+                (x.MaintenanceNumber != null && x.MaintenanceNumber.ToLower().Contains(searchValue)) ||
+                (x.Device.SerialNumber != null && x.Device.SerialNumber.ToLower().Contains(searchValue)) ||
                 (x.Description != null && x.Description.ToLower().Contains(searchValue)) ||
                 (x.Device != null && x.Device.Model != null && x.Device.Model.ToLower().Contains(searchValue)) ||
                 (x.User != null && x.User.Name != null && x.User.Name.ToLower().Contains(searchValue)) ||

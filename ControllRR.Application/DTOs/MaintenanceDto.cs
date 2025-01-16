@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using ControllRR.Domain.Entities;
 
 namespace ControllRR.Application.DTOs;
 
@@ -37,5 +38,9 @@ public class MaintenanceDto
     public string DeviceName { get; set; } = string.Empty; // Nome ou modelo do dispositivo associado
 
     [Display(Name = "Setor")]
-    public string SectorName { get; set; } = string.Empty; //Nome do setor
+    public string? SectorName { get; set; } = string.Empty; //Nome do setor
+
+     public Device? Device { get; set; }
+
+     public int DeviceId { get; set; }
 }

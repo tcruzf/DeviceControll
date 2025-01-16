@@ -36,7 +36,11 @@ builder.Services.AddScoped<IDeviceService, DeviceService>();
 builder.Services.AddScoped<IDocumentRepository, DocumentRepository>();
 builder.Services.AddScoped<IDocumentService, DocumentService>();
 builder.Services.AddScoped<IFileStorageService, FileStorageService>();
+builder.Services.AddScoped<ISectorService, SectorService>();
+builder.Services.AddScoped<ISectorRepository, SectorRepository>();
 
+
+//optionsBuilder.LogTo(Console.WriteLine, LogLevel.Information);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

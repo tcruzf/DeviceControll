@@ -1,4 +1,7 @@
+using ControllRR.Application.DTOs;
 using ControllRR.Application.Interfaces;
+using ControllRR.Domain.Entities;
+using ControllRR.Presentation.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ControllRR.Presentation.Controllers;
@@ -8,10 +11,13 @@ public class MaintenancesController : Controller
 
     private readonly IMaintenanceService _maintenanceService;
     private readonly IDeviceService _deviceService;
-    public MaintenancesController(IMaintenanceService maintenanceService, IDeviceService deviceService)
+    private readonly IUserService _userService;
+    public MaintenancesController(IMaintenanceService maintenanceService, IDeviceService deviceService, IUserService userService)
     {
         _maintenanceService = maintenanceService;
         _deviceService = deviceService;
+        _userService = userService;
+
     }
 
     public async Task<IActionResult> Index()
@@ -20,6 +26,26 @@ public class MaintenancesController : Controller
         return View(maintenances);
 
     }
+    [HttpGet]
+    public async Task<IActionResult> NewMaintenance()
+    {
+        var users = await _userService.GetAllAsync();
+        var maintenance = new MaintenanceDto();
+        var viewModel = new MaintenanceViewModel { User = users, Maintenance = maintenance };
+        return View(viewModel);
+    }
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> NewMaintenance(MaintenanceDto maintenanceDto)
+    {
+        //if (!ModelState.IsValid)
+       // {
+            
+        //}
+        await _maintenanceService.AddAsync(maintenanceDto);
+        return RedirectToAction(nameof(Index));
+        
+    }
 
     public async Task<IActionResult> Details(int id)
     {
@@ -27,7 +53,7 @@ public class MaintenancesController : Controller
         return View(maintenance);
 
     }
-    [HttpGet ]
+    [HttpGet]
     public async Task<IActionResult> MaintenanceList()
     {
         return View();

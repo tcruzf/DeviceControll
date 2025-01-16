@@ -57,11 +57,11 @@ public class SeedingService
 
 
                 //public Maintenance(int id, string description, DateTime openDate,DateTime closeDate, MaintenanceStatus status, User user )
-                Maintenance m1 = new Maintenance(1, "PC com problemas para ligar", "Erro bios" , new DateTime(2024, 09, 25), new DateTime(2024, 09, 30), MaintenanceStatus.Pendente, usr1, dv1, 1443);
-                Maintenance m2 = new Maintenance(2, "Não liga", "asdfasdf", new DateTime(2024, 09, 22), new DateTime(2024, 09, 28), MaintenanceStatus.Finalizada, usr2, dv2, 7474 );
-                Maintenance m3 = new Maintenance(3, "PC molhou", "PC molhou", new DateTime(2024, 09, 10), new DateTime(2024, 09, 15), MaintenanceStatus.Finalizada, usr3, dv3, 7412 );
-                Maintenance m4 = new Maintenance(4, "PC pegou fogo após o coler parar de girar", "Pegou Fogo", new DateTime(2024, 09, 18), new DateTime(2024, 09, 28), MaintenanceStatus.Pendente, usr4, dv4, 1233);
-                Maintenance m5 = new Maintenance(5, "Formatar","Format", new DateTime(2024, 10, 18), new DateTime(2024, 10, 28), MaintenanceStatus.Aguardando, usr1, dv5, 11298 );
+                Maintenance m1 = new Maintenance(1, "PC com problemas para ligar", "Erro bios" , new DateTime(2024, 09, 25), new DateTime(2024, 09, 30), MaintenanceStatus.Pendente, usr1, dv1, "1443");
+                Maintenance m2 = new Maintenance(2, "Não liga", "asdfasdf", new DateTime(2024, 09, 22), new DateTime(2024, 09, 28), MaintenanceStatus.Finalizada, usr2, dv2, "7474" );
+                Maintenance m3 = new Maintenance(3, "PC molhou", "PC molhou", new DateTime(2024, 09, 10), new DateTime(2024, 09, 15), MaintenanceStatus.Finalizada, usr3, dv3, "7412" );
+                Maintenance m4 = new Maintenance(4, "PC pegou fogo após o coler parar de girar", "Pegou Fogo", new DateTime(2024, 09, 18), new DateTime(2024, 09, 28), MaintenanceStatus.Pendente, usr4, dv4, "1233");
+                Maintenance m5 = new Maintenance(5, "Formatar","Format", new DateTime(2024, 10, 18), new DateTime(2024, 10, 28), MaintenanceStatus.Aguardando, usr1, dv5, "11298" );
         
                 _context.AddRange(usr1, usr2, usr3, usr4, usr5, usr6, usr7, usr8);
                 _context.AddRange(s1, s2, s3, s4, s5, s6, s7);

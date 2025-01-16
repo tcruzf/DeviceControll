@@ -45,5 +45,25 @@ public class MaintenanceService : IMaintenanceService
     {
         await _maintenanceRepository.DeleteAsync(id);
     }
+    
+
+    public async Task<object> GetMaintenanceDataTableAsync(
+        int start, 
+        int length, 
+        string searchValue, 
+        string sortColumn, 
+        string sortDirection)
+    {
+        (IEnumerable<object> data, int totalRecords, int filteredRecords) =
+            await _maintenanceRepository.GetMaintenancesAsync(start, length, searchValue, sortColumn, sortDirection);
+
+        return new
+        {
+            draw = Guid.NewGuid().ToString(), // Pode ajustar conforme necessário
+            recordsTotal = totalRecords,
+            recordsFiltered = filteredRecords,
+            data
+        };
+    }
  
 }

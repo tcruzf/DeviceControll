@@ -10,6 +10,14 @@ public interface IMaintenanceRepository
     Task AddAsync(Maintenance maintenance);
     Task UpdateAsync(Maintenance maintenance);
     Task DeleteAsync(int id);
+    Task<(IEnumerable<object> Data, int TotalRecords, int FilteredRecords)> GetMaintenancesAsync(
+    int start,
+    int length,
+    string searchValue,
+    string sortColumn,
+    string sortDirection);
+
+
 
 
 }

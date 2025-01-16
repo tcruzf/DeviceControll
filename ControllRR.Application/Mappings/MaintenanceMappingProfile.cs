@@ -12,6 +12,8 @@ public class MaintenanceMappingProfile : Profile
             .ForMember(dest => dest.UserFullName, opt => opt.MapFrom(src => src.User.Name)) // Mapear o nome do usuário
             .ForMember(dest => dest.DeviceName, opt => opt.MapFrom(src => src.Device.Type)) // Mapear o nome do dispositivo
             .ForMember(dest => dest.SectorName, opt => opt.MapFrom(src => src.Device.Sector.Name)) // Mapear o nome do setor
+           // .ForMember(dest => dest.OpenDate, opt => opt.MapFrom(src => src.OpenDate.ToString()))
+          //  .ForMember(dest => dest.CloseDate, opt => opt.MapFrom(src => src.CloseDate.ToString()))
             .ReverseMap(); // Permitir mapeamento reverso
 
         // Caso precise de mapeamento para DTOs adicionais, adicione aqui

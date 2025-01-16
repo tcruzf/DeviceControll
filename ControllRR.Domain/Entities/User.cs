@@ -10,6 +10,7 @@ public class User
 
     public double Register { get; set; }
 
+     public ICollection<Maintenance>? Maintenances {get; set; }
     public DateTime CreatedAt { get; set; } = DateTime.Now;
     public User()
     {

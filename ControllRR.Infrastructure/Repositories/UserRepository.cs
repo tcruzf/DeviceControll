@@ -17,7 +17,14 @@ public class UserRepository : IUserRepository
         return await _controllRRContext.Users.ToListAsync();
     }
 
-    public async Task<User?> GetByIdAsync(int id) => await _controllRRContext.Users.FindAsync(id);
+    public async Task<User?> GetByIdAsync(int id)
+    {
+        
+       return await _controllRRContext.Users//.FindAsync(id);
+        .Include(x => x.Maintenances).FirstOrDefaultAsync(x => x.Id == id);
+        
+        
+    } 
 
    public async Task AddAsync(User user) 
    {

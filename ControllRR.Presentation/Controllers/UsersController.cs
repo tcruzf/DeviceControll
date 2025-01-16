@@ -15,10 +15,11 @@ public class UsersController : Controller
 
 
 
-    public async Task<IActionResult> Get(int id)
+    public async Task<IActionResult> GetUser(int id)
     {
         var user = await _userService.GetByIdAsync(id);
-        return user != null ? Ok(user) : NotFound();
+        //return user != null ? Ok(user) : NotFound();
+        return View(user);
     }
 
 

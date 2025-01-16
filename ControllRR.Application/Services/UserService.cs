@@ -18,7 +18,7 @@ public class UserService : IUserService
     }
 
     public async Task<UserDto> GetByIdAsync(int id)
-    {
+    { 
         var user = await _userRepository.GetByIdAsync(id);
         return _mapper.Map<UserDto>(user);
 
